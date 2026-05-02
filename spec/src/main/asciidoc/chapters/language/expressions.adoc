@@ -19,14 +19,17 @@ Expressions may be categorized as:
 [[literal-expressions]]
 ==== Literal expressions
 
-The syntax for literal expressions is given by the rules `string_literal` and `numeric_literal`, and in the previous section titled <<Lexical structure>>.
+The syntax for literal expressions is given by the rules `string_literal`, `numeric_literal`, `#datetime_literal#`, and in the previous section titled <<Lexical structure>>.
 
 In an implementation for Java, a string, integer, or decimal literal is assigned the type it would be assigned in Java.
 So, for example, `'Hello'` is assigned the type `java.lang.String`, `123` is assigned the type `int`, `1e4` is assigned the type `double`, and `1.23f` is assigned the type `float`.
 In the persistence language:
 
-- arbitrary-precision integer literals (with suffix `BI`) are assigned the type `java.math.BigInteger`, and
-- arbitrary-precision decimal literals (with suffix `BD`) are assigned the type `java.math.BigDecimal`.
+- arbitrary-precision integer literals (with suffix `BI`) are assigned the type `java.math.BigInteger`,
+- arbitrary-precision decimal literals (with suffix `BD`) are assigned the type `java.math.BigDecimal`,
+- datetime literals (with prefix `DATETIME`) are assigned the type `java.time.LocalDateTime`,
+- date literals (with prefix `DATE`) are assigned the type `java.time.LocalDate`, and
+- time literals (with prefix `TIME`) are assigned the type `java.time.LocalTime`.
 
 When executed, a literal expression evaluates to its literal value.
 

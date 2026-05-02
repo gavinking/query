@@ -507,6 +507,7 @@ datetime_expression
     | single_valued_input_parameter
     | functions_returning_datetime
     | special_datetime_expression
+    | datetime_literal
     | aggregate_expression
     | case_expression
     | function_invocation
@@ -685,6 +686,32 @@ datetime_field
 datetime_part
     : IDENTIFIER
     ;
+
+datetime_literal
+    : 'DATETIME' date time
+    | 'DATE' date
+    | 'TIME' time
+    ;
+
+date
+	: year '-' month '-' day
+	;
+
+time
+	: hour ':' minute (':' second)?
+	;
+
+year: INTEGER;
+
+month: INTEGER;
+
+day: INTEGER;
+
+hour: INTEGER;
+
+minute: INTEGER;
+
+second: INTEGER | DOUBLE;
 
 
 entity_name : IDENTIFIER;
