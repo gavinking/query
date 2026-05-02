@@ -631,8 +631,15 @@ Some implementations allow unions of lists containing entities of distinct type 
 A _subquery_ is a query which occurs as an expression in another _outer query_.
 Subqueries have a restricted syntax compared to root queries, and, in particular, every subquery must have a <<projection,projection>> with exactly one value expression.
 
-NOTE: This specification defines the behavior of subqueries occurring within <<restriction,restrictions>> in the `where` clause or `having` clause.
+[NOTE]
+====
+This specification defines the behavior of subqueries occurring:
+
+- within <<restriction,restrictions>> in the `where` clause or `having` clause, or
+- within <<select-clause,projections>>.
+
 Some implementations of Jakarta Query allow subqueries to occur elsewhere in the query, but this functionality falls outside the scope of this specification.
+====
 
 A subquery may have expressions which involve aliases declared by any outer query.
 A query with such expressions is called _correlated_.
