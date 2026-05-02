@@ -129,7 +129,7 @@ When a path expression is executed, each element of the path is evaluated in tur
 
 - Each subsequent element of the path is evaluated in the context of the structure produced by evaluating the previous element (typically, an instance of an entity or embeddable type), and evaluates to the value of the labeled element of the result structure.
 
-If any element of a path expression evaluates to a null value, the whole path expression evaluates to a null value.
+If any element of a path expression evaluates to a null value, the whole path expression evaluates to a null value.footnote:[However, the behavior of the `is null` operator is undefined, according to <<null-comparisons>>.]
 
 NOTE: An implementation of the common language is not required to support path expressions which involve multiple entities. For example, if `Book` and `Publisher` are different entity types, then the path expression `book.publisher.name` is not part of the common language.footnote:[Path expressions involving multiple entities are called _implicit joins_ by the Jakarta Persistence specification.]
 
@@ -456,6 +456,10 @@ A `null` comparison, with syntax given by `null_comparison_expression`, is satis
 
 - the `not` keyword is missing, and its operand evaluates to a null value, or
 - the `not` keyword occurs, and its operand evaluates to any non-null value.
+
+NOTE: According to the rules given above in <<path-expressions>>, when a subpath of a path expression evaluates to null, the whole path expression is considered to evaluate to null.
+However, this specification does not define the behavior of a null comparison expression applied to a path expression with a null subpath.
+For backward compatibility with older releases of the Jakarta Persistence Query Language, an implementation of Jakarta Query is permitted to treat such a null comparison as unsatisfied, contrary to the specification given here.
 
 [[in-expressions]]
 ==== In expressions
