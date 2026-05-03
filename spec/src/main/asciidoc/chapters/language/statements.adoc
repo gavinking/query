@@ -97,6 +97,7 @@ Every `#join#` or `#fetch_join#` begins with a `#join_spec#`:
 
 - if the keyword `#left#` occurs in the `#join_spec#`, then the join is interpreted as a left (outer) join, as specified by <<left-joins-entities>> and <<left-joins-nested>>, or
 - if the keyword `#right#` occurs in the `#join_spec#`, then the join is interpreted as a right (outer) join, as specified by <<right-joins-entities>>, or
+- if the keyword `#full#` occurs in the `#join_spec#`, then the join is interpreted as a full (outer) join, as specified by <<full-joins-entities>>, or
 - otherwise, the join is interpreted as a regular (inner) join.
 
 The joins belonging to a query are evaluated in the order in which they occur in the query.

@@ -278,6 +278,36 @@ A right join to a named entity produces a result list with:
 - every structure belonging to the result list of the identical regular join, as defined above in <<joins-entities>>, and
 - for each record _y_ of entity type `Y` which does not already occur with label `y` in the result list of the identical regular join, a structure containing _y_ labeled by the alias `y`.
 
+[[full-joins-entities]]
+==== Full joins to named entities
+
+A full join to a named entity has the syntax:
+
+[source,sql]
+----
+[from] full join Y as y
+----
+
+where, as before, `Y` is the name of the entity, `y` is the label (alias) assigned to it, and `[from]` is a root entity or a join.
+As usual, the keyword `as` is optional.
+
+A full join may specify a predicate:
+
+[source,sql]
+----
+[from] right join Y as y on [predicate]
+----
+
+where `[predicate]` is a predicate, as defined later in <<predicates>>.
+
+A right join to a named entity produces a result list with:
+
+- every structure belonging to the result list of the identical regular join, as defined above in <<joins-entities>>,
+- every structure _r_ of the result list of the operation on which the join acts for which there is no structure _r'_ in the result list of the identical regular join which contains every labeled element of _r_, and
+- for each record _y_ of entity type `Y` which does not already occur with label `y` in the result list of the identical regular join, a structure containing _y_ labeled by the alias `y`.
+
+That is, the result list of a full join contains every structure belonging to the result list of an identical left join, and every structure belonging to the result list of an identical right join.
+
 [[joins-nested]]
 ==== Joins to nested entities or collections
 
