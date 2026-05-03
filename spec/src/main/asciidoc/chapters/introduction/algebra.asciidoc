@@ -224,6 +224,60 @@ The result of the query might contain structures like:
 
 This time, `isbn` and `bookIsbn` agree.
 
+[[left-joins-entities]]
+==== Left joins to named entities
+
+A left join to a named entity has the syntax:
+
+[source,sql]
+----
+[from] left join Y as y
+----
+
+where, as before, `Y` is the name of the entity, `y` is the label (alias) assigned to it, and `[from]` is a root entity or a join.
+As before, the keyword `as` is optional.
+
+A left join may specify a predicate:
+
+[source,sql]
+----
+[from] left join Y as y on [predicate]
+----
+
+where `[predicate]` is a predicate, as defined later in <<predicates>>.
+
+A left join to a named entity produces a result list with:
+
+- every structure belonging to the result list of the identical regular join,footnote:[That is, the same join with the `left` keyword deleted.] as defined above in <<joins-entities>>, and
+- every structure _r_ of the result list of the operation on which the join acts for which there is no structure _r'_ in the result list of the identical regular join which contains every labeled element of _r_.
+
+[[right-joins-entities]]
+==== Right joins to named entities
+
+A right join to a named entity has the syntax:
+
+[source,sql]
+----
+[from] right join Y as y
+----
+
+where, as before, `Y` is the name of the entity, `y` is the label (alias) assigned to it, and `[from]` is a root entity or a join.
+As usual, the keyword `as` is optional.
+
+A right join may specify a predicate:
+
+[source,sql]
+----
+[from] right join Y as y on [predicate]
+----
+
+where `[predicate]` is a predicate, as defined later in <<predicates>>.
+
+A right join to a named entity produces a result list with:
+
+- every structure belonging to the result list of the identical regular join, as defined above in <<joins-entities>>, and
+- for each record _y_ of entity type `Y` which does not already occur with label `y` in the result list of the identical regular join, a structure containing _y_ labeled by the alias `y`.
+
 [[joins-nested]]
 ==== Joins to nested entities or collections
 
@@ -304,9 +358,8 @@ where `[predicate]` is a predicate, as defined later in <<predicates>>.
 
 This kind of join is interpreted as a sequence of two operations: a join of the previous kind, with no `on`, followed by a <<restriction,restriction>> with the given predicate.
 
-
-[[left-joins]]
-==== Left joins
+[[left-joins-nested]]
+==== Left joins to nested entities or collections
 
 A left join is similar to a regular join:
 
@@ -350,6 +403,9 @@ Just like regular joins, a left join may be followed by a restriction:
 
 In this case, however, the restriction is only evaluated for elements of the result list which contain structures labeled by the alias `y`.
 Any element of the result list of the join which does not contain a structure labeled by the alias `y` is taken to satisfy the restriction, even when the predicate would not be satisfied by that element.
+
+NOTE: This specification does not require support for right or full outer joins to nested entities or collections.
+Some implementations of Jakarta Query might support such outer joins, but we do not define the semantics here.
 
 [[fetch-joins]]
 ==== Fetch joins

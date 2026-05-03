@@ -90,7 +90,7 @@ fetch_join
     ;
 
 join_spec
-    : ('INNER' | 'LEFT' 'OUTER'?)?
+    : ('INNER' | ('LEFT' | 'RIGHT') 'OUTER'?)?
       'JOIN'
     ;
 
