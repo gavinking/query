@@ -179,6 +179,8 @@ NOTE: Functions highlighted in yellow belong to the persistence language and are
 | `#coalesce#` | At least two | Any atomic type `T` | `T` | Evaluates to the value of the first argument expression which evaluates to a non-null value.
 | `#nullif#` | 2 | Any atomic type `T` | `T` | Evaluates to the null value if both argument expressions evaluate to the same value, or, otherwise, to the value of the first argument expression.
 | `#extract#` | 2 | Any date or time type | See text | See text
+| `#least#` | 2 or more | Any numeric type, any date or time type, or string | Same as arguments | Evaluates to the smallest argument, according to the <<natural-order,natural order>> of the type
+| `#greatest#` | 2 or more | Any numeric type, any date or time type, or string | Same as arguments | Evaluates to the largest argument, according to the <<natural-order,natural order>> of the type
 |===
 
 When any argument expression of any function application evaluates to a null value, the whole function application evaluates to null.
@@ -300,7 +302,7 @@ The `#type()#` function accepts an expression assigned an entity type, and, when
 An implementation for Java assigns the type `java.lang.Class<? extends E>` where `E` is the Java class mapping the entity type assigned to the argument expression, and an entity type expression evaluates to an instance of `Class` representing the Java class which maps the entity type of the record to which the argument expression evaluates.
 
 [[aggregate-functions]]
-==== Aggregate functions application
+==== Aggregate function application
 
 An _aggregate function application_ may only occur in the `select` or `having` clause of a query involving <<aggregation,aggregation>>.
 Such a clause operates on a list of nested result lists, as specified above in <<projection-and-aggregation>> and <<restriction-and-aggregation>>.
