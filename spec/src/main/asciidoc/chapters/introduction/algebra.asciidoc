@@ -295,12 +295,12 @@ A full join may specify a predicate:
 
 [source,sql]
 ----
-[from] right join Y as y on [predicate]
+[from] full join Y as y on [predicate]
 ----
 
 where `[predicate]` is a predicate, as defined later in <<predicates>>.
 
-A right join to a named entity produces a result list with:
+A full join to a named entity produces a result list with:
 
 - every structure belonging to the result list of the identical regular join, as defined above in <<joins-entities>>,
 - every structure _r_ of the result list of the operation on which the join acts for which there is no structure _r'_ in the result list of the identical regular join which contains every labeled element of _r_, and
