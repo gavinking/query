@@ -95,8 +95,10 @@ The `#identification_variable#` specifies the alias (label) introduced by the jo
 
 Every `#join#` or `#fetch_join#` begins with a `#join_spec#`:
 
-- if the keyword `#left#` occurs in the `#join_spec#`, then the join is interpreted as a left (outer) join, as specified by <<left-joins>>, or
-- otherwise, if the keyword `#left#` is missing, the join is interpreted as a regular (inner) join.
+- if the keyword `#left#` occurs in the `#join_spec#`, then the join is interpreted as a left (outer) join, as specified by <<left-joins-entities>> and <<left-joins-nested>>,
+- if the keyword `#right#` occurs in the `#join_spec#`, then the join is interpreted as a right (outer) join, as specified by <<right-joins-entities>>,
+- if the keyword `#full#` occurs in the `#join_spec#`, then the join is interpreted as a full (outer) join, as specified by <<full-joins-entities>>, or
+- otherwise, the join is interpreted as a regular (inner) join.
 
 The joins belonging to a query are evaluated in the order in which they occur in the query.
 
