@@ -561,11 +561,15 @@ functions_returning_numerics
     | 'SIZE' '(' collection_valued_path_expression ')'
     | 'INDEX' '(' identification_variable ')'
     | 'EXTRACT' '(' datetime_field 'FROM' datetime_expression ')'
+    | 'LEAST' '(' arithmetic_expression ',' arithmetic_expression (',' arithmetic_expression)* ')'
+    | 'GREATEST' '(' arithmetic_expression ',' arithmetic_expression (',' arithmetic_expression)* ')'
     | 'CAST' '(' string_expression 'AS' ('INTEGER' | 'LONG' | 'FLOAT' | 'DOUBLE') ')'
     ;
 
 functions_returning_datetime
     : 'EXTRACT' '(' datetime_part 'FROM' datetime_expression ')'
+    | 'LEAST' '(' datetime_expression ',' datetime_expression (',' datetime_expression)* ')'
+    | 'GREATEST' '(' datetime_expression ',' datetime_expression (',' datetime_expression)* ')'
     ;
 
 functions_returning_strings
@@ -574,6 +578,8 @@ functions_returning_strings
     | 'TRIM' '(' (trim_specification? trim_character? 'FROM')? string_expression ')'
     | 'LOWER' '(' string_expression ')'
     | 'UPPER' '(' string_expression ')'
+    | 'LEAST' '(' string_expression ',' string_expression (',' string_expression)* ')'
+    | 'GREATEST' '(' string_expression ',' string_expression (',' string_expression)* ')'
     | 'CAST' '(' scalar_expression 'AS' 'STRING' ')'
     ;
 
