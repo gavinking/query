@@ -356,6 +356,7 @@ simple_conditional_expression
     | empty_collection_comparison_expression
     | collection_member_of_expression
     | exists_expression
+    | boolean_expression
     ;
 
 between_expression

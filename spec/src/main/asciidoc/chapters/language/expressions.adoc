@@ -434,8 +434,9 @@ Conditional expressions may be categorized as:
 - <<between,`between` expressions>>,
 - <<like,`like` expressions>>,
 - <<equality-and-inequality,equality and inequality>> operator expressions,
-- <<quantifiers,quantified conditional expressions>>, and
-- <<logical-operators,logical operator expressions>>.
+- <<quantifiers,quantified conditional expressions>>,
+- <<logical-operators,logical operator expressions>>, and
+- boolean <<value-expressions,value expressions>>.
 
 The syntax for conditional expressions is given by the `conditional_expression` rule. Within a conditional expression, parentheses indicate grouping.
 
