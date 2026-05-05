@@ -97,3 +97,13 @@ As usual, token recognition is "greedy". Therefore, whitespace must be placed be
 - a keyword directly follows an identifier or named parameter,
 - an identifier directly follows a keyword or named parameter, or
 - a numeric literal directly follows an identifier, keyword, or parameter.
+
+=== Scope of identification variables
+
+A reference to an identification variable (alias) may occur:
+
+- in any <<path-expressions,expression>> occurring after its declaration, but directly within the query which declares the identification variable,
+- in any expression occurring directly in the `select` clause of the query which declares the identification variable, or
+- in a direct or indirect subquery of the query which declares the identification variable.
+
+A reference to an identification variable declared by a subquery may not occur in a containing query of the subquery.
