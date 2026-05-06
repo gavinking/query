@@ -66,10 +66,9 @@ Positional and named parameters must not be mixed in a single query.
 An _enum literal expression_ is a sequence of identifiers, with syntax specified by `enum_literal`, and must refer to a member of some sort of enumerated type.
 An enum literal may only occur as:
 
-- the right operand of an `update_item` belonging to a `set` assignment,
 - the right operand of an `=` or `<>` equality comparison,
 - an `in_item` element of an `in_item_list` occurring as the right operand of the <<in-expressions,`in` operator>>, or
-- the `new_value` of an `update_item` in the `set` clause.
+- the `new_value` of an `update_item` in a `set` assignment.
 
 In each case, the enum literal expression is assigned the type of the left operand of the assignment, comparison, or `in` operator.
 
