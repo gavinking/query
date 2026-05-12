@@ -374,6 +374,16 @@ When a simple case expression is executed, the `#case_operand#` is evaluated, an
 The whole case expression evaluates to the value produced by the result or default `scalar_expression` which was evaluated.
 If there is no `else`, and no `scalar_expression` was evaluated, the whole case expression evaluates to the null value.
 
+[[constructor-application]]
+==== Constructor application
+
+In the grammar of the persistence language, a _constructor application_ is the name of a type belonging to the host programming language, followed by a parenthesized list of argument expressions, with syntax given by `#constructor_expression#`.
+
+Constructor application can only occur as a `#select_expression#` in a projection.
+
+In an implementation for Java, constructor application is interpreted as instantiation of a Java class or record type.
+This specification does not require support for constructor application, not even in an implementation of the persistence language.
+
 [[operator-expressions]]
 ==== Operator expressions
 
