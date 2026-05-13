@@ -560,7 +560,7 @@ The operands of an equality or inequality operator must have the same type,
  and it must be either:
 
 - an <<atomic-values,atomic type>> considered _comparable_ by the implementation of Jakarta Query, or
-- an <<entity-type-expressions,entity type>>--that is `Class<E>` where `E` is an entity.
+- an <<entity-type-expressions,entity class type>> -- that is `Class<E>`, where `E` is an entity class.
 
 Any type with a <<natural-order,natural order>> must be treated as a comparable type, and the equality and inequality operators must be interpreted in a way which is consistent with the natural order.
 
@@ -587,6 +587,8 @@ In an implementation of Jakarta Query which targets clients written in Java, eve
 
 - For primitive types, these operators have the same meaning they have in Java, except for `<>` which has the same meaning that `!=` has in Java. Such an operator expression is satisfied when the equivalent operator expression would evaluate to `true` in Java.
 - For wrapper types, these operators are satisfied if both operands evaluate to non-null values, and the equivalent operator expression involving primitives would be satisfied.
+- For entity class types -- that is, `Class<E>` -- an equality expression is satisfied if the two expressions represent the same entity class, and an inequality expression is satisfied if they represent distinct entity classes.
+  Entity class types do not have a natural order, and so only the `=` and `<>` operators are meaningful.
 - For other types, these operators are usually evaluated according to the native semantics of the database.
 
 NOTE: Portability is maximized when Jakarta Query providers interpret equality and inequality operators in a manner consistent with the implementation of `Object.equals()` or `Comparable.compareTo()` for the assigned Java type.
