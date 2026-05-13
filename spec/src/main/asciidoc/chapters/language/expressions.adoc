@@ -447,6 +447,8 @@ This specification does not require support for use of any sort of conditional e
 For example, in a non-relational database which only allows lookup by key, the only sort of conditional expression which is allowed is an equality operator expression involving the entity <<structures-and-records,identifier>>.footnote:[In Jakarta NoSQL, the key attribute is identified by the annotation `jakarta.nosql.Id`.]
 ====
 
+Every value expression of type `boolean` or `Boolean` is a legal conditional expression, satisfied when the value expression evaluates to `true`.
+
 [[null-comparisons]]
 ==== Null comparisons
 
