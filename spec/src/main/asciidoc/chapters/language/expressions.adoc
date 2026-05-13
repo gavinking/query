@@ -557,7 +557,11 @@ That is, if the escape character is `c`, then the character bigram `c_` is inter
 The equality and inequality operators are `=`, `&lt;&gt;`, `&lt;`, `&gt;`, `&lt;=`, `&gt;=`.
 
 The operands of an equality or inequality operator must have the same type,
- and it must be an atomic type considered _comparable_ by the implementation of Jakarta Query.
+ and it must be either:
+
+- an <<atomic-values,atomic type>> considered _comparable_ by the implementation of Jakarta Query, or
+- an <<entity-type-expressions,entity type>>--that is `Class<E>` where `E` is an entity.
+
 Any type with a <<natural-order,natural order>> must be treated as a comparable type, and the equality and inequality operators must be interpreted in a way which is consistent with the natural order.
 
 For non-null values, the following table defines an interpretation consistent with the natural order:
