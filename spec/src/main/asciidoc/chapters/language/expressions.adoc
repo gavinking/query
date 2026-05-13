@@ -652,6 +652,23 @@ For clients written in Java, note that:
 
 The natural order does not determine the precedence of null values, and so this specification leaves their precedence undefined except when `nulls first` or `nulls last` is explicitly specified for an item of the order by clause, as defined by <<order-clause>>.
 
+[[ordering-expressions]]
+=== Ordering criteria
+
+An _ordering criterion_, with syntax given by `orderby_expression`, contributes to determining the order of a result list, as specified in <<ordering>>.
+Each ordering criterion must be either:
+
+1. a <<path-expressions,path expression>> assigned an atomic type with a natural order, and which evaluates to a value being returned by the query, either as an item in the select list, or as a labeled element of an entity or embeddable returned by the query,
+2. in the persistence language, the name of a label declared by a `#select_item#` and assigned an atomic type with a natural order -- that is, a reference to a `#result_variable#` of the query, or
+3. a `scalar_expression` involving only path expressions and result variables permitted by items 1 and 2 above.
+
+An ordering criterion must never involve a <<parameters,parameter>> of the query.
+
+[WARNING]
+====
+A database might impose additional restrictions on ordering criteria.
+====
+
 [[logical-operators]]
 === Logical operators
 

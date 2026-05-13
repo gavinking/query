@@ -187,7 +187,7 @@ An item of the order by clause, with syntax given by `orderby_item` has:
 - optionally, in the persistence language, `#nulls first#` or `#nulls last#`.
 
 In the common language, an `orderby_expression` must be a <<path-expressions,path expression>> or <<identifier-version-expressions,identifier expression>>.
-In the persistence language, an `orderby_expression` may be almost any sort of atomic-valued expression (but not a parameter), as specified by the grammar of the persistence language.
+In the persistence language, an `orderby_expression` may be almost any sort of atomic-valued expression (but not a parameter), as specified by the grammar of the persistence language and in <<ordering-expressions>>.
 
 NOTE: An implementation of Jakarta Query is not required to support sorting by any expression not <<projection,returned by the query>>. If a query returns an entity, then any sortable attribute of the queried entity may occur in the `order` clause. Otherwise, if the query has an explicit `select` clause, an implementation might require that an attribute which occurs in the `order` also occurs in the `select`.
 
