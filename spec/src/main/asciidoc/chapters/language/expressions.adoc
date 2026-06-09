@@ -431,7 +431,7 @@ When the `scalar_expression` is evaluated, the subquery is executed, and the who
 [[numeric-promotion]]
 ==== Numeric types and numeric type promotion
 
-The type assigned to an operator expression depends on the types of its operand expression, which need not be identical.
+The type assigned to an operator expression depends on the types of its operand expression, which, only in the case of numeric types, need not be identical.
 Numeric type promotion is defined by the following rules:
 
 * If there is an operand of type `Double` or `double`, the expression is of type `Double`.
@@ -559,7 +559,7 @@ That is, if the escape character is `c`, then the character bigram `c_` is inter
 
 The equality and inequality operators are `=`, `&lt;&gt;`, `&lt;`, `&gt;`, `&lt;=`, `&gt;=`.
 
-The operands of an equality or inequality operator must have the same type, and it must be either:
+The operands of an equality or inequality operator must have the same type, unless eligible for <<numeric-promotion,numeric type promotion>>, and it must be either:
 
 - an <<atomic-values,atomic type>> considered _comparable_ by the implementation of Jakarta Query,
 - an entity or embeddable type, or
