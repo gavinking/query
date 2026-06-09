@@ -431,8 +431,12 @@ When the `scalar_expression` is evaluated, the subquery is executed, and the who
 [[numeric-promotion]]
 ==== Numeric types and numeric type promotion
 
-The type assigned to an operator expression depends on the types of its operand expression, which, only in the case of numeric types, need not be identical.
-Numeric type promotion is defined by the following rules:
+The type assigned to a <<operator-expressions,binary numeric operator expression>> depends on the numeric types of its operand expressions, which need not be identical.
+Implementations are required to tolerate numeric operator expressions involving operands assigned distinct numeric types.
+
+NOTE: The behavior of numeric type promotion varies according to the database and client programming language.
+
+In an implementation for Java, numeric type promotion is defined by the following rules:
 
 * If there is an operand of type `Double` or `double`, the expression is of type `Double`.
 * Otherwise, if there is an operand of type `Float` or `float`, the expression is of type `Float`.
